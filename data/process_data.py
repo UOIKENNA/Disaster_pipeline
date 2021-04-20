@@ -4,16 +4,16 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 
-def load_data(messages_filepath, categories_filepath):
+def load_data(messages_file_path, categories_file_path):
     """Load data from csv files and merge both datasets on ID
     Args:
-        messages_filepath => csv file for messages
-        categories_filepath => csv file for categories
+        messages_file_path => csv file for messages
+        categories_file_path => csv file for categories
     Returns:
         df => Dataframe messages and categories merged on ID
     """
-    messages = pd.read_csv(messages_filepath)
-    categories = pd.read_csv(categories_filepath)
+    messages = pd.read_csv(messages_file_path)
+    categories = pd.read_csv(categories_file_path)
     df = messages.merge(categories, on = 'id')
     return df
 
