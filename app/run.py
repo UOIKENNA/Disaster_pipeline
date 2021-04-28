@@ -26,24 +26,24 @@ def tokenize(text):
     return clean_tokens
 
 # load data
-engine = create_engine('sqlite:///DisasterResponse.db')
+engine = create_engine('sqlite:///../data/DisasterResponse.db')
 df = pd.read_sql_table('Disasters', engine)
 
 # load model
-model = joblib.load("model.pkl")
+model = joblib.load("../models/model.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
 @app.route('/')
 @app.route('/index')
+
+
 def index():
 
     # extract data needed for visuals
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
-    category_names = df.iloc[:,4:].columns
-    category_bool = (df.iloc[:,4:] != 0).sum().values
 
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -63,27 +63,6 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
-                }
-            }
-        },
-        # GRAPH n.2
-        {
-            'data': [
-                Bar(
-                    x= category_names,
-                    y= category_bool
-                )
-            ],
-            'layout': {
-                'title': 'Distribution of Categories across Messages',
-                'yaxis':{
-                    'title':"Count"
-                },
-                'xaxis': {
-                    'title':"Categories"
-
-
-
                 }
             }
         }
