@@ -112,7 +112,7 @@ def save_model(model, model_filepath):
     """
     Save model to a pickle file
     """
-    pickle.dump(model, open('model.pkl', 'wb'))
+    pickle.dump(model, open('../models/model.pkl', 'wb'))
 
 
 def main():
