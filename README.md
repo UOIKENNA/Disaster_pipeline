@@ -1,7 +1,7 @@
 # Disaster_pipeline Project
 The mission of this project is to apply data science skills to a dataset provided by figure8 which contains thousands of real time disaster response messages sent to various orgnizations during disasters. We want to build a model that classifies disaster messages for api usage.
 
-#Instructions
+# Instructions
 1. Run the following commands in the project's root directory to set up your database and model.
 
     - To run ETL pipeline that cleans data and stores in database
